@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="drillutils.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="35"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <CursorPos X="49" Y="31"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="drillformulas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="55"/>
+        <CursorPos X="34" Y="81"/>
+        <UsageCount Value="32"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Drilldll\drilldll.lpr"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="27" Y="4"/>
+        <UsageCount Value="9"/>
+      </Unit3>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="35" Column="33" TopLine="8"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="8" Column="38"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="34" Column="58" TopLine="4"/>
+      </Position3>
+      <Position4>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="30" Column="42"/>
+      </Position4>
+      <Position5>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="34" Column="31"/>
+      </Position5>
+      <Position6>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="31" Column="21"/>
+      </Position6>
+      <Position7>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="19"/>
+      </Position7>
+      <Position8>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="34" Column="75"/>
+      </Position8>
+      <Position9>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="29" Column="53"/>
+      </Position9>
+      <Position10>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="13" Column="48"/>
+      </Position10>
+      <Position11>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="34" Column="5" TopLine="16"/>
+      </Position11>
+      <Position12>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="32" Column="82" TopLine="13"/>
+      </Position12>
+      <Position13>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="33" Column="39" TopLine="13"/>
+      </Position13>
+      <Position14>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="31" Column="16" TopLine="13"/>
+      </Position14>
+      <Position15>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="32" Column="50" TopLine="7"/>
+      </Position15>
+      <Position16>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="35" Column="22" TopLine="15"/>
+      </Position16>
+      <Position17>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="37" Column="27" TopLine="15"/>
+      </Position17>
+      <Position18>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="55" Column="61" TopLine="17"/>
+      </Position18>
+      <Position19>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="35" Column="36" TopLine="15"/>
+      </Position19>
+      <Position20>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="19" Column="48" TopLine="14"/>
+      </Position20>
+      <Position21>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="66" Column="50" TopLine="29"/>
+      </Position21>
+      <Position22>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="60" Column="25" TopLine="32"/>
+      </Position22>
+      <Position23>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="64" Column="64" TopLine="32"/>
+      </Position23>
+      <Position24>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="67" Column="30" TopLine="32"/>
+      </Position24>
+      <Position25>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="83" Column="63" TopLine="50"/>
+      </Position25>
+      <Position26>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="75" Column="62" TopLine="50"/>
+      </Position26>
+      <Position27>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="84" Column="47" TopLine="50"/>
+      </Position27>
+      <Position28>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="83" Column="54" TopLine="51"/>
+      </Position28>
+      <Position29>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="33" Column="57" TopLine="21"/>
+      </Position29>
+      <Position30>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="31" Column="10" TopLine="11"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
