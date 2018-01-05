@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 518
+  Left = 570
   Height = 682
-  Top = 218
-  Width = 999
+  Top = 160
+  Width = 1006
   Caption = 'Form1'
   ClientHeight = 662
-  ClientWidth = 999
+  ClientWidth = 1006
   Menu = MainMenu1
   LCLVersion = '1.8.0.6'
   object PageControl1: TPageControl
@@ -23,18 +23,194 @@ object Form1: TForm1
       object Button1: TButton
         Left = 400
         Height = 25
-        Top = 160
+        Top = 16
         Width = 75
         Caption = 'Расчитать'
+        OnClick = Button1Click
         TabOrder = 0
       end
       object GroupBox1: TGroupBox
         Left = 8
-        Height = 90
+        Height = 200
         Top = 8
-        Width = 386
+        Width = 384
         Caption = 'Исходные данные'
+        ClientHeight = 180
+        ClientWidth = 380
         TabOrder = 1
+        object Label1: TLabel
+          Left = 8
+          Height = 15
+          Top = 0
+          Width = 61
+          Caption = 'Расход, л/с'
+          ParentColor = False
+        end
+        object Label2: TLabel
+          Left = 8
+          Height = 15
+          Top = 32
+          Width = 104
+          Caption = 'Плотность, кг/м^3'
+          ParentColor = False
+        end
+        object Edit1: TEdit
+          Left = 128
+          Height = 23
+          Top = 0
+          Width = 61
+          Alignment = taRightJustify
+          TabOrder = 0
+          Text = '30'
+        end
+        object Edit2: TEdit
+          Left = 128
+          Height = 23
+          Top = 32
+          Width = 61
+          Alignment = taRightJustify
+          TabOrder = 1
+          Text = '1100'
+        end
+        object Edit3: TEdit
+          Left = 128
+          Height = 23
+          Top = 64
+          Width = 61
+          Alignment = taRightJustify
+          TabOrder = 2
+          Text = '127'
+        end
+        object Label3: TLabel
+          Left = 8
+          Height = 15
+          Top = 64
+          Width = 78
+          Caption = 'Диаметер, мм'
+          ParentColor = False
+        end
+        object Label4: TLabel
+          Left = 8
+          Height = 15
+          Top = 92
+          Width = 116
+          Caption = 'Толщина стенки, мм'
+          ParentColor = False
+        end
+        object Edit4: TEdit
+          Left = 128
+          Height = 23
+          Top = 96
+          Width = 61
+          Alignment = taRightJustify
+          NumbersOnly = True
+          TabOrder = 3
+          Text = '9,19'
+        end
+        object Label7: TLabel
+          Left = 8
+          Height = 15
+          Top = 128
+          Width = 50
+          Caption = 'Длина, м'
+          ParentColor = False
+        end
+        object Edit7: TEdit
+          Left = 128
+          Height = 23
+          Top = 128
+          Width = 61
+          Alignment = taRightJustify
+          TabOrder = 4
+          Text = '1000'
+        end
+      end
+      object StringGrid1: TStringGrid
+        Left = 8
+        Height = 84
+        Top = 312
+        Width = 984
+        AutoFillColumns = True
+        Color = clDefault
+        ColCount = 8
+        DefaultDrawing = False
+        DefaultRowHeight = 22
+        FixedCols = 0
+        ParentBiDiMode = False
+        RowCount = 2
+        TabOrder = 2
+        OnPrepareCanvas = StringGrid1PrepareCanvas
+        ColWidths = (
+          122
+          122
+          122
+          122
+          122
+          122
+          122
+          126
+        )
+        Cells = (
+          8
+          0
+          0
+          'Внутренний диаметр, мм'
+          1
+          0
+          'Число Хедстрема (He)'
+          2
+          0
+          'Критическое число Рейнольдса (Re-cr)'
+          3
+          0
+          'Средняя скорость жидкости, м/с'
+          4
+          0
+          'Фактическое чило Рейнольдса'
+          5
+          0
+          'Режим течения жидкости'
+          6
+          0
+          'Коэффициент гидравлического сопротивления'
+          7
+          0
+          'Потери давления, МПа'
+        )
+      end
+      object Label5: TLabel
+        Left = 16
+        Height = 15
+        Top = 224
+        Width = 213
+        Caption = 'Динамическое напряжение сдвига, Па'
+        ParentColor = False
+      end
+      object Label6: TLabel
+        Left = 16
+        Height = 15
+        Top = 252
+        Width = 159
+        Caption = 'Пластическая вязкость, Па*с'
+        ParentColor = False
+      end
+      object Edit5: TEdit
+        Left = 240
+        Height = 23
+        Top = 224
+        Width = 61
+        Alignment = taRightJustify
+        NumbersOnly = True
+        TabOrder = 3
+      end
+      object Edit6: TEdit
+        Left = 240
+        Height = 23
+        Top = 252
+        Width = 61
+        Alignment = taRightJustify
+        NumbersOnly = True
+        TabOrder = 4
       end
     end
     object TabSheet2: TTabSheet

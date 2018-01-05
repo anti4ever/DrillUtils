@@ -71,7 +71,7 @@ end;
 //Число Хендсрема (He)(Плотность, Динамическое напряжение сдвига, Пластическая вязкость)
 function He (Plotnost, DinamNaprSdviga, Diameter, PlastVayzkost: real): real;
 begin
-        Result:=(Plotnost*DinamNaprSdviga*exp(2*ln(Diameter)))/PlastVayzkost;
+        Result:=(Plotnost*DinamNaprSdviga*exp(2*ln(Diameter)))/exp(2*ln(PlastVayzkost));
 end;
 
 //Кретическое число Рейнольдса (CRe)(Число Хендсрема)
