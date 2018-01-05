@@ -136,6 +136,7 @@ object Form1: TForm1
         DefaultDrawing = False
         DefaultRowHeight = 22
         FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
         ParentBiDiMode = False
         RowCount = 2
         TabOrder = 2

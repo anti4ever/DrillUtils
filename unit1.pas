@@ -85,7 +85,10 @@ var
   dns: Real;    //Динамическое напряжение сдвига, Па
   pv: Real;  //Пластическая вязкость, Па*с
   hep: Real; // Число Хендстрема
-  crre: Real; //Критическое число Рейнольдса
+  crre: Real; //Критическое число
+  v: Real;  //Средняя скорость жидксости, м/с
+  s: Real; // Площадь канала, мм2
+  Q: Real; // Расход, л/с
 begin
   //Внутренний диаметр, мм
   dv:= StrToFloat(Form1.Edit3.Text)-2*StrToFloat(Form1.Edit4.Text);
@@ -105,7 +108,13 @@ begin
 
   //Критическое число Рейнольдса
   crre:=CRe(hep);
-  Form1.StringGrid1.Cells[2,1]:= FloatToStr(Ceil(crre));;
+  Form1.StringGrid1.Cells[2,1]:= FloatToStr(Ceil(crre));
+
+  //Средняя скорость жидксости, м/с
+  s:=PloshadKruga(dv)/1000000;
+  Q:=StrToFloat(Form1.Edit1.Text)/1000;
+  v:=Q/s;
+  Form1.StringGrid1.Cells[3,1]:= FormatFloat('#.##',v);
 
 
 end;
