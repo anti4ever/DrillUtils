@@ -28,14 +28,14 @@ function He (Plotnost, DinamNaprSdviga, Diameter, PlastVayzkost: real): real;
 function CRe (He:real):real;
 
 //Число Рейнольдса (Re)
-function Re (Lambda, Plotnost, SredScorostGidkost , Diameter, L:real):real;
+function Re (Plotnost,SrednScorostGidkost,Diameter,PlastVayzkost:real):real;
 
 //Коэффициент гидравлических потерь (Лямбда). delta для труб 0,1; для кольцевого
 //пространства 0,107. K для труб 0,03; для кольцевого пространства 0,003.
 function Lambda (delta, Diameter, Re, He, K :real):real;
 
-//Скорость восходящего потока, м/с (Расход, м^3/c; Площадь, м^2)
-function SkorostVoschPotoka (Raschod, Ploshad:real):real;
+//Скорость потока, м/с (Расход, м^3/c; Площадь, м^2)
+function SrednScorostGidkost (Raschod, Ploshad:real):real;
 
 //------------------------------------------------------------------------------
 
@@ -81,26 +81,51 @@ begin
 end;
 
 
-//Число Рейнольдса (Re)
-function Re (Lambda, Plotnost, SredScorostGidkost , Diameter,L:real):real;
+//Число Рейнольдса (Re)(Плтность, кг/м3; Средняя скорость жидкости, м/с;
+//Диаметер, м; Пластическая вязкость,Па*с)
+function Re (Plotnost,SrednScorostGidkost,Diameter,PlastVayzkost:real):real;
 begin
-     Result:= Lambda*Plotnost*exp(2*ln(SredScorostGidkost))*L/(2*Diameter);
+       Result:=Plotnost*SrednScorostGidkost*Diameter/PlastVayzkost;
 end;
 
 //Коэффициент гидравлических потерь (Лямбда). delta для труб 0,1; для кольцевого
 //пространства 0,107. K для труб 0,03; для кольцевого пространства 0,003.
+// (дельта; диаметер, м; Re; He; K)
 function Lambda (delta, Diameter, Re, He, K :real):real;
 begin
      Result:= delta * exp(0.25*ln(1.46*K/Diameter+100/Re+6.72*He/exp(4*ln(Re))));
 end;
 
-//Скорость восходящего потока, м/с (Расход, м^3/c; Площадь, м^2)
-function SkorostVoschPotoka (Raschod, Ploshad:real):real;
+//Скорость потока, м/с (Расход, м^3/c; Площадь, м^2);
+function SrednScorostGidkost (Raschod, Ploshad:real):real;
 begin
      Result:=Raschod/Ploshad;
 end;
 
+//Перепад давления при турбулентном режиме, Па (Лябда, Плотность, кг/м3;
+//Средняя скорость жидксти, м/с; Диаметер, м)
+function deltaPTurb (Lambda, Plotnost, SredScorostGidkost , Diameter,L:real):real;
+begin
+     Result:= Lambda*Plotnost*exp(2*ln(SredScorostGidkost))*L/(2*Diameter);
+end;
 
+//Число Сенванана для случая ламинарного течения (Se)
+function Se (DinamNaprSdviga,Diameter,PlastVayzkost,SredScorostGidkost:real):real;
+begin
+     Result:=(DinamNaprSdviga*Diameter)/(PlastVayzkost*SredScorostGidkost);
+end;
+
+//Перепад давления при ламинарном течении, Па
+function deltaPLamin (Se,DinamNaprSdivga, L, Diameter:real):real;
+var beta:real;
+ begin
+      if Se >= 10 then
+      beta:= 1-(4*(sqr(1.2+0.5*Se)-1))/Se
+      else
+      beta:=Se/(12+1.3*Se);
+
+      Result:=4*DinamNaprSdivga/beta*Diameter*L;
+ end;
 
 end.
 

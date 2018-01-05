@@ -1,27 +1,58 @@
 object Form1: TForm1
-  Left = 219
-  Height = 272
-  Top = 409
-  Width = 333
+  Left = 518
+  Height = 682
+  Top = 218
+  Width = 999
   Caption = 'Form1'
-  ClientHeight = 272
-  ClientWidth = 333
+  ClientHeight = 662
+  ClientWidth = 999
+  Menu = MainMenu1
   LCLVersion = '1.8.0.6'
-  object Button1: TButton
-    Left = 75
-    Height = 97
-    Top = 95
-    Width = 172
-    Caption = 'Button1'
-    OnClick = Button1Click
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 624
+    Top = 0
+    Width = 1008
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Расчет гидравлических потерь'
+      ClientHeight = 596
+      ClientWidth = 1000
+      object Button1: TButton
+        Left = 400
+        Height = 25
+        Top = 160
+        Width = 75
+        Caption = 'Расчитать'
+        TabOrder = 0
+      end
+      object GroupBox1: TGroupBox
+        Left = 8
+        Height = 90
+        Top = 8
+        Width = 386
+        Caption = 'Исходные данные'
+        TabOrder = 1
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Тест'
+      Enabled = False
+      ParentShowHint = False
+      TabVisible = False
+    end
   end
-  object Edit1: TEdit
-    Left = 88
-    Height = 23
-    Top = 29
-    Width = 138
-    TabOrder = 1
-    Text = 'Edit1'
+  object MainMenu1: TMainMenu
+    left = 24
+    top = 608
+    object MenuItem1: TMenuItem
+      Caption = 'Файл'
+      object MenuItem2: TMenuItem
+        Caption = 'Выход'
+        OnClick = MenuItem2Click
+      end
+    end
   end
 end

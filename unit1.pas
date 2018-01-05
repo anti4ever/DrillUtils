@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, StdCtrls, Drillformulas;
+  Classes, SysUtils, Forms, StdCtrls, Menus, ComCtrls, Drillformulas;
 
 type
 
@@ -13,8 +13,14 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
-    Edit1: TEdit;
-    procedure Button1Click(Sender: TObject);
+    GroupBox1: TGroupBox;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    procedure MenuItem2Click(Sender: TObject);
   private
 
   public
@@ -30,11 +36,12 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  Form1.Edit1.Text:=FloatToStr(DiameterWell(10,12));
 
- end;
+
+procedure TForm1.MenuItem2Click(Sender: TObject);
+begin
+  Close;
+end;
 
 
 
