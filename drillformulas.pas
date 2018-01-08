@@ -37,6 +37,12 @@ function Lambda (delta, Diameter, Re, He, K :real):real;
 //Скорость потока, м/с (Расход, м^3/c; Площадь, м^2)
 function SrednScorostGidkost (Raschod, Ploshad:real):real;
 
+//Число Сенванана для случая ламинарного течения (Se)
+function Se (DinamNaprSdviga,Diameter,PlastVayzkost,SredScorostGidkost:real):real;
+
+//Перепад давления при ламинарном течении, Па
+function deltaPLamin (Sen,DinamNaprSdivga, L, Diameter:real):real;
+
 //------------------------------------------------------------------------------
 
 
@@ -116,15 +122,21 @@ begin
 end;
 
 //Перепад давления при ламинарном течении, Па
-function deltaPLamin (Se,DinamNaprSdivga, L, Diameter:real):real;
+function deltaPLamin (Sen,DinamNaprSdivga, L, Diameter:real):real;
 var beta:real;
  begin
-      if Se >= 10 then
-      beta:= 1-(4*(sqr(1.2+0.5*Se)-1))/Se
+      if Sen >= 10 then
+      //begin
+      //x:= sqrt(1.2+0.5*Sen);
+      beta:= 1-(4*(sqrt(1.2+0.5*Sen)-1))/Sen
+      //end
       else
-      beta:=Se/(12+1.3*Se);
+      //begin
+      beta:=Sen/(12+1.3*Sen);//;
+//end;
 
-      Result:=4*DinamNaprSdivga/beta*Diameter*L;
+      Result:=4*DinamNaprSdivga*L/(beta*Diameter);
+
  end;
 
 end.

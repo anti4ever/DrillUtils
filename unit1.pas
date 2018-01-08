@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, StdCtrls, Menus, ComCtrls, Grids, Graphics,
-  Drillformulas, Math, Types, Controls;
+  Drillformulas, Math, Controls;
 
 type
 
@@ -51,12 +51,11 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     procedure Button1Click(Sender: TObject);
-    //procedure Edit1KeyPress(Sender: TObject; var Key: char);
+    procedure Edit1KeyPress(Sender: TObject; var Key: char);
     procedure MenuItem2Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
-    procedure TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: Boolean);
+
 
 
   private
@@ -96,11 +95,7 @@ begin
   end;
 end;
 
-procedure TForm1.TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
-  var Handled: Boolean);
-begin
 
-end;
 
 procedure deltaPpipe ();
 var
@@ -113,6 +108,10 @@ var
   v: Real;  //Средняя скорость жидксости, м/с
   s: Real; // Площадь канала, мм2
   Q: Real; // Расход, л/с
+  lambdaRe: Real; // Коэфф. гидр. сопротивления Турбулентный режим
+  selam: Real;
+  lt: real;
+  dp: Real;
 begin
   //Внутренний диаметр, мм
   dv:= StrToFloat(Form1.Edit3.Text)-2*StrToFloat(Form1.Edit4.Text);
@@ -149,8 +148,16 @@ begin
    Form1.StringGrid1.Cells[5,1]:= 'Турбулентный';
    Form1.StringGrid1.Cells[7,1]:= '-';
 
+  end
+  else
+  begin
+    Form1.StringGrid1.Cells[5,1]:= 'Ламинарный';
+    selam:=Se(dns,dv,pv,v);
+    Form1.StringGrid1.Cells[7,1]:= FloatToStr(selam);
+    lt:=StrToFloat(Form1.Edit7.Text);
+    dp:=deltaPLamin(selam,dns,lt,dv)/1000;
+    Form1.StringGrid1.Cells[8,1]:= FloatToStr(dp);
   end;
-
 
 end;
 
@@ -161,21 +168,16 @@ end;
 
 
 //Ввод только цифр и точки с запятой
-{procedure TForm1.Edit1KeyPress(Sender: TObject; var Key: char);
+procedure TForm1.Edit1KeyPress(Sender: TObject; var Key: char);
 begin
   case Key of
     '0'..'9', #8:;
-    ',','.': if Pos(DecimalSeparator, Form1.Edit1.Text) = 0 then
-     Key := DecimalSeparator else Key := #0;
+    ',','.': if Pos(DecimalSeparator{%H-}, Form1.Edit1.Text) = 0 then
+     Key := DecimalSeparator{%H-} else Key := #0;
   else
    Key := #0;
   end;
-end;}
-
-
-
-
-
+end;
 
 end.
 

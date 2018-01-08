@@ -4,12 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="14">
+    <Units Count="6">
       <Unit0>
         <Filename Value="drillutils.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="109"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="164"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -19,9 +20,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="30"/>
-        <CursorPos X="5" Y="55"/>
-        <UsageCount Value="109"/>
+        <TopLine Value="127"/>
+        <CursorPos Y="159"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="164"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -29,206 +31,178 @@
         <Filename Value="drillformulas.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="77" Y="86"/>
-        <UsageCount Value="106"/>
+        <TopLine Value="92"/>
+        <CursorPos Y="131"/>
+        <UsageCount Value="161"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="..\Drilldll\drilldll.lpr"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="27" Y="4"/>
-        <UsageCount Value="1"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="C:\Users\Anti\AppData\Local\Temp\Rar$DIa0.108\unit1.pas"/>
-        <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="C:\Users\Anti\AppData\Local\Temp\Rar$DIa0.373\unit1.pas"/>
-        <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="C:\Users\Anti\AppData\Local\Temp\Rar$DIa0.585\unit1.pas"/>
-        <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="16"/>
-        <UsageCount Value="4"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\win\sysutils.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\sysstrh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="164"/>
-        <CursorPos X="10" Y="188"/>
-        <UsageCount Value="5"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="C:\lazarus\lcl\grids.pas"/>
-        <UnitName Value="Grids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="9604"/>
-        <CursorPos Y="9628"/>
-        <UsageCount Value="5"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="G:\Учеба\Учеба 4 курс\Курсовая Буровые, промывочные жидкости\прграмма для расчета гидравлических потерь\прграмма для расчета гидравлических потерь\PREPS2\PR_NEW.PAS"/>
-        <UnitName Value="GR"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="813"/>
-        <CursorPos Y="814"/>
-        <UsageCount Value="5"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="G:\Учеба\Учеба 4 курс\Курсовая Буровые, промывочные жидкости\прграмма для расчета гидравлических потерь\прграмма для расчета гидравлических потерь\PREPS2\OPR.PAS"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="32" Y="338"/>
-        <UsageCount Value="5"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="C:\Users\Anti\AppData\Local\Temp\_tc\PR_NEW.PAS"/>
-        <UnitName Value="GR"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="790"/>
-        <CursorPos X="11" Y="814"/>
-        <UsageCount Value="5"/>
-      </Unit12>
-      <Unit13>
         <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\sysinth.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="107"/>
         <CursorPos X="3" Y="133"/>
+        <UsageCount Value="4"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="937"/>
+        <CursorPos X="14" Y="961"/>
         <UsageCount Value="10"/>
-      </Unit13>
+      </Unit4>
+      <Unit5>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="91"/>
+        <CursorPos X="3" Y="117"/>
+        <UsageCount Value="10"/>
+      </Unit5>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="42" Column="22" TopLine="17"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="133" Column="11" TopLine="85"/>
       </Position1>
       <Position2>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="46" Column="16" TopLine="21"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="132" Column="48" TopLine="86"/>
       </Position2>
       <Position3>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="147" TopLine="100"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="129" Column="45" TopLine="86"/>
       </Position3>
       <Position4>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="47" Column="5" TopLine="22"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="133" Column="11" TopLine="86"/>
       </Position4>
       <Position5>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="48" Column="5" TopLine="22"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="132" TopLine="86"/>
       </Position5>
       <Position6>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="49" Column="5" TopLine="22"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="129" TopLine="86"/>
       </Position6>
       <Position7>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="50" Column="5" TopLine="22"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="128" Column="29" TopLine="86"/>
       </Position7>
       <Position8>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="52" Column="5" TopLine="22"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="132" Column="10" TopLine="92"/>
       </Position8>
       <Position9>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="149" Column="3" TopLine="105"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position9>
       <Position10>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="150" Column="3" TopLine="106"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="130" Column="40" TopLine="92"/>
       </Position10>
       <Position11>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="151" Column="3" TopLine="107"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="135" Column="31" TopLine="92"/>
       </Position11>
       <Position12>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="144" Column="6" TopLine="110"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="136" Column="3" TopLine="92"/>
       </Position12>
       <Position13>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="145" Column="54" TopLine="114"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="135" Column="30" TopLine="92"/>
       </Position13>
       <Position14>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="170" Column="28" TopLine="129"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="132" Column="45" TopLine="92"/>
       </Position14>
       <Position15>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="60" Column="69" TopLine="31"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="135" Column="29" TopLine="92"/>
       </Position15>
       <Position16>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="170" Column="63" TopLine="129"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" Column="41" TopLine="92"/>
       </Position16>
       <Position17>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="61" Column="5" TopLine="36"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="138" Column="49" TopLine="92"/>
       </Position17>
       <Position18>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="170" Column="46" TopLine="134"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="135" Column="30" TopLine="92"/>
       </Position18>
       <Position19>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="174" Column="21" TopLine="139"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position19>
       <Position20>
         <Filename Value="unit1.pas"/>
-        <Caret Line="177" Column="8" TopLine="140"/>
+        <Caret Line="159" TopLine="127"/>
       </Position20>
       <Position21>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="182" Column="25" TopLine="139"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position21>
       <Position22>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="184" Column="5" TopLine="140"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="138" Column="50" TopLine="92"/>
       </Position22>
       <Position23>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="188" TopLine="140"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position23>
       <Position24>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="168" Column="13" TopLine="142"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="138" TopLine="92"/>
       </Position24>
       <Position25>
         <Filename Value="unit1.pas"/>
-        <Caret Line="169" Column="37" TopLine="143"/>
+        <Caret Line="158" Column="37" TopLine="127"/>
       </Position25>
       <Position26>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="168" Column="13" TopLine="142"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position26>
       <Position27>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="193" TopLine="142"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="138" TopLine="92"/>
       </Position27>
       <Position28>
         <Filename Value="unit1.pas"/>
-        <Caret Line="169" Column="8" TopLine="143"/>
+        <Caret Line="161" Column="35" TopLine="127"/>
       </Position28>
       <Position29>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="165" Column="2" TopLine="131"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="131" TopLine="92"/>
       </Position29>
       <Position30>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="54" Column="5" TopLine="29"/>
+        <Filename Value="drillformulas.pas"/>
+        <Caret Line="138" TopLine="92"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="2">
+      <Item1>
+        <Kind Value="bpkData"/>
+        <WatchData Value="crre"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <InitialEnabled Value="False"/>
+      </Item1>
+      <Item2>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="drillformulas.pas"/>
+        <Line Value="135"/>
+      </Item2>
+    </BreakPoints>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="hep"/>
+      </Item1>
+    </Watches>
+  </Debugging>
 </CONFIG>

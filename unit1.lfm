@@ -1,13 +1,13 @@
 object Form1: TForm1
-  Left = 599
+  Left = 551
   Height = 575
-  Top = 73
+  Top = 212
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'DrillUtilits'
-  ClientHeight = 555
-  ClientWidth = 1028
+  ClientHeight = 0
+  ClientWidth = 0
   Menu = MainMenu1
   LCLVersion = '1.8.0.6'
   object PageControl1: TPageControl
@@ -22,7 +22,6 @@ object Form1: TForm1
       Caption = 'Расчет гидравлических потерь'
       ClientHeight = 508
       ClientWidth = 1016
-      OnContextPopup = TabSheet1ContextPopup
       object GroupBox1: TGroupBox
         Left = 8
         Height = 88
@@ -54,6 +53,7 @@ object Form1: TForm1
           Top = 1
           Width = 61
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 0
           Text = '28'
         end
@@ -63,6 +63,7 @@ object Form1: TForm1
           Top = 40
           Width = 61
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 1
           Text = '1100'
         end
@@ -271,6 +272,7 @@ object Form1: TForm1
           Height = 88
           Top = 8
           Width = 984
+          Anchors = [akLeft]
           AutoFillColumns = True
           Color = clDefault
           ColCount = 9
