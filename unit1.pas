@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, StdCtrls, Menus, ComCtrls, Grids, Graphics,
-  Drillformulas, Math, Controls;
+  Drillformulas, Math, Controls, ExtCtrls, Types;
 
 type
 
@@ -19,6 +19,9 @@ type
     CheckBox2: TCheckBox;
     Edit1: TEdit;
     Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
@@ -34,6 +37,9 @@ type
     GroupBox5: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -45,13 +51,17 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
     PageControl1: TPageControl;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     procedure Button1Click(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure CheckBox2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
+    procedure GroupBox3Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
@@ -85,7 +95,6 @@ procedure TForm1.StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
 var MyTextStyle: TTextStyle;
 begin
   StringGrid1.RowHeights[0]:=50;
-
   if (aRow=0) then
   begin
     MyTextStyle := StringGrid1.Canvas.TextStyle;
@@ -99,19 +108,21 @@ end;
 
 procedure deltaPpipe ();
 var
-  dv :Real;  //Внутр. диаметр, мм
-  dns: Real;    //Динамическое напряжение сдвига, Па
-  pv: Real;  //Пластическая вязкость, Па*с
-  hep: Real; // Число Хендстрема
-  crre: Real; //Критическое число Рейнольдса
-  ref:Real; //Число Рейнольдса
-  v: Real;  //Средняя скорость жидксости, м/с
-  s: Real; // Площадь канала, мм2
-  Q: Real; // Расход, л/с
-  lambdaRe: Real; // Коэфф. гидр. сопротивления Турбулентный режим
-  selam: Real;
-  lt: real;
-  dp: Real;
+  dv :Double;  //Внутр. диаметр труб, мм
+  dns: Double;    //Динамическое напряжение сдвига, Па
+  pv: Double;  //Пластическая вязкость, Па*с
+  hep: Double; // Число Хендстрема
+  crre: Double; //Критическое число Рейнольдса
+  ref:Double; //Число Рейнольдса
+  v: Double;  //Средняя скорость жидксости, м/с
+  s: Double; // Площадь канала, мм2
+  Q: Double; // Расход, л/с
+  lambdaRe: Double; // Коэфф. гидр. сопротивления Турбулентный режим
+  selam: Double;
+  lt: Double;
+  dp: Double;
+  ktr, kpor: Double;
+  deltatr: Double;
 begin
   //Внутренний диаметр, мм
   dv:= StrToFloat(Form1.Edit3.Text)-2*StrToFloat(Form1.Edit4.Text);
@@ -137,7 +148,7 @@ begin
   s:=PloshadKruga(dv)/1000000;
   Q:=StrToFloat(Form1.Edit1.Text)/1000;
   v:=Q/s;
-  Form1.StringGrid1.Cells[3,1]:= FormatFloat('#.##',v);
+  Form1.StringGrid1.Cells[3,1]:= FormatFloat('0.##',v);
 
   //Число Рейнольдса
   ref:=Re(StrToFloat(Form1.Edit2.Text),v,dv,pv);
@@ -147,16 +158,34 @@ begin
   begin
    Form1.StringGrid1.Cells[5,1]:= 'Турбулентный';
    Form1.StringGrid1.Cells[7,1]:= '-';
+   deltatr:=StrToFloat('0,1');
+   ktr:= StrToFloat('0,0003');
+   lambdaRe:=Lambda(deltatr,(dv/1000),ref,hep,ktr);
+   Form1.StringGrid1.Cells[6,1]:= FormatFloat('0.####',lambdaRe);
+   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit7.Text))/1000000;
+   Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',dp);
+   {if Form1.CheckBox1.State=cbChecked then
+   begin
+   lambdaRe:=Lambda(0.1,);
+   end;
+
+   if Form1.CheckBox1.State=cbChecked then
+   begin
+
+   end;}
+
+
 
   end
   else
   begin
     Form1.StringGrid1.Cells[5,1]:= 'Ламинарный';
+    Form1.StringGrid1.Cells[6,1]:= '-';
     selam:=Se(dns,dv,pv,v);
-    Form1.StringGrid1.Cells[7,1]:= FloatToStr(selam);
+    Form1.StringGrid1.Cells[7,1]:= FormatFloat('0.##',selam); //FloatToStr(selam);
     lt:=StrToFloat(Form1.Edit7.Text);
     dp:=deltaPLamin(selam,dns,lt,dv)/1000;
-    Form1.StringGrid1.Cells[8,1]:= FloatToStr(dp);
+    Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',dp); //FloatToStr(dp);
   end;
 
 end;
@@ -165,6 +194,29 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   deltaPpipe;
 end;
+
+procedure TForm1.CheckBox1Click(Sender: TObject);
+begin
+  if CheckBox1.State = cbChecked then
+  Form1.CheckBox2.Checked:=False;
+  Form1.Edit9.Enabled:=False;
+  Form1.Edit12.Enabled:=True;
+   Form1.Edit13.Enabled:=True;
+end;
+
+procedure TForm1.CheckBox2Click(Sender: TObject);
+begin
+   if CheckBox2.State = cbChecked then
+   Form1.CheckBox1.Checked:=False;
+   Form1.Edit12.Enabled:=False;
+   Form1.Edit13.Enabled:=False;
+   Form1.Edit9.Enabled:=True;
+end;
+
+
+
+
+
 
 
 //Ввод только цифр и точки с запятой
@@ -177,6 +229,11 @@ begin
   else
    Key := #0;
   end;
+end;
+
+procedure TForm1.GroupBox3Click(Sender: TObject);
+begin
+
 end;
 
 end.

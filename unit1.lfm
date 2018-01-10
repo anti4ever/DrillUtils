@@ -1,18 +1,18 @@
 object Form1: TForm1
-  Left = 551
-  Height = 575
-  Top = 212
+  Left = 594
+  Height = 611
+  Top = 97
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'DrillUtilits'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 591
+  ClientWidth = 1028
   Menu = MainMenu1
   LCLVersion = '1.8.0.6'
   object PageControl1: TPageControl
     Left = 0
-    Height = 536
+    Height = 544
     Top = 0
     Width = 1024
     ActivePage = TabSheet1
@@ -20,7 +20,7 @@ object Form1: TForm1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Расчет гидравлических потерь'
-      ClientHeight = 508
+      ClientHeight = 516
       ClientWidth = 1016
       object GroupBox1: TGroupBox
         Left = 8
@@ -91,6 +91,7 @@ object Form1: TForm1
         Width = 61
         Alignment = taRightJustify
         NumbersOnly = True
+        OnKeyPress = Edit1KeyPress
         TabOrder = 1
       end
       object Edit6: TEdit
@@ -100,10 +101,11 @@ object Form1: TForm1
         Width = 61
         Alignment = taRightJustify
         NumbersOnly = True
+        OnKeyPress = Edit1KeyPress
         TabOrder = 2
       end
       object GroupBox2: TGroupBox
-        Left = 328
+        Left = 312
         Height = 159
         Top = 9
         Width = 224
@@ -125,6 +127,7 @@ object Form1: TForm1
           Top = 0
           Width = 61
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 0
           Text = '127'
         end
@@ -134,6 +137,7 @@ object Form1: TForm1
           Top = 64
           Width = 61
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 1
           Text = '1000'
         end
@@ -144,6 +148,7 @@ object Form1: TForm1
           Width = 61
           Alignment = taRightJustify
           NumbersOnly = True
+          OnKeyPress = Edit1KeyPress
           TabOrder = 2
           Text = '9,19'
         end
@@ -174,20 +179,24 @@ object Form1: TForm1
         end
       end
       object GroupBox3: TGroupBox
-        Left = 576
-        Height = 215
+        Left = 544
+        Height = 239
         Top = 9
-        Width = 304
+        Width = 464
         Caption = 'Расчет потерь давления в кольцевом пространстве'
-        ClientHeight = 195
-        ClientWidth = 300
+        ClientHeight = 219
+        ClientWidth = 460
         TabOrder = 4
+        OnClick = GroupBox3Click
         object CheckBox1: TCheckBox
           Left = 8
           Height = 19
           Top = 4
           Width = 139
           Caption = 'Обсаженный участок'
+          Checked = True
+          OnClick = CheckBox1Click
+          State = cbChecked
           TabOrder = 0
         end
         object CheckBox2: TCheckBox
@@ -196,72 +205,131 @@ object Form1: TForm1
           Top = 28
           Width = 152
           Caption = 'Необсаженный участок'
+          OnClick = CheckBox2Click
           TabOrder = 1
         end
         object Label8: TLabel
           Left = 8
           Height = 15
           Top = 56
-          Width = 153
-          Caption = 'Диаметр колонны труб, мм'
+          Width = 217
+          Caption = 'Диаметр колонны бурильных труб, мм'
           ParentColor = False
         end
         object Label9: TLabel
           Left = 8
           Height = 15
-          Top = 88
+          Top = 120
           Width = 137
           Caption = 'Диаметер скважины, мм'
           ParentColor = False
         end
         object Edit8: TEdit
-          Left = 176
+          Left = 240
           Height = 23
           Top = 56
           Width = 54
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 2
           Text = '127'
         end
         object Edit9: TEdit
-          Left = 176
-          Height = 23
-          Top = 88
-          Width = 54
-          Alignment = taRightJustify
-          TabOrder = 3
-          Text = '215,9'
-        end
-        object Edit10: TEdit
-          Left = 176
+          Left = 240
           Height = 23
           Top = 120
           Width = 54
           Alignment = taRightJustify
+          Enabled = False
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 3
+          Text = '215,9'
+        end
+        object Edit10: TEdit
+          Left = 240
+          Height = 23
+          Top = 152
+          Width = 54
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 4
           Text = '1000'
         end
         object Label10: TLabel
           Left = 8
           Height = 15
-          Top = 120
-          Width = 50
-          Caption = 'Длина, м'
+          Top = 152
+          Width = 110
+          Caption = 'Длина интервала, м'
           ParentColor = False
         end
         object Button2: TButton
-          Left = 112
+          Left = 200
           Height = 25
-          Top = 160
+          Top = 184
           Width = 75
           Caption = 'Расчитать'
           TabOrder = 5
         end
+        object Label11: TLabel
+          Left = 312
+          Height = 15
+          Top = 56
+          Width = 62
+          Caption = 'Стенка, мм'
+          ParentColor = False
+        end
+        object Edit11: TEdit
+          Left = 392
+          Height = 23
+          Top = 56
+          Width = 56
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 6
+          Text = '9,19'
+        end
+        object Edit12: TEdit
+          Left = 240
+          Height = 23
+          Top = 88
+          Width = 54
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 7
+          Text = '245'
+        end
+        object Label12: TLabel
+          Left = 8
+          Height = 15
+          Top = 88
+          Width = 181
+          Caption = 'Диаметр обсадной колонны, мм'
+          ParentColor = False
+        end
+        object Label13: TLabel
+          Left = 312
+          Height = 15
+          Top = 88
+          Width = 62
+          Caption = 'Стенка, мм'
+          ParentColor = False
+        end
+        object Edit13: TEdit
+          Left = 392
+          Height = 23
+          Top = 88
+          Width = 56
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 8
+          Text = '10.00'
+        end
       end
       object GroupBox4: TGroupBox
-        Left = 8
+        Left = 7
         Height = 128
-        Top = 232
+        Top = 256
         Width = 1001
         Caption = 'Результаты расчета потерь в трубах'
         ClientHeight = 108
@@ -281,6 +349,7 @@ object Form1: TForm1
           FixedCols = 0
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
           ParentBiDiMode = False
+          ParentFont = False
           RowCount = 2
           TabOrder = 0
           OnPrepareCanvas = StringGrid1PrepareCanvas
@@ -311,7 +380,7 @@ object Form1: TForm1
             'Средняя скорость жидкости, м/с'
             4
             0
-            'Фактическое чило Рейнольдса'
+            'Фактическое чило Рейнольдса (Re)'
             5
             0
             'Режим течения жидкости'
@@ -320,7 +389,7 @@ object Form1: TForm1
             'Коэффициент гидравлического сопротивления'
             7
             0
-            'Параметр Сен-Венана'
+            'Параметр Сен-Венана (Se)'
             8
             0
             'Потери давления, МПа'
@@ -330,7 +399,7 @@ object Form1: TForm1
       object GroupBox5: TGroupBox
         Left = 8
         Height = 128
-        Top = 376
+        Top = 384
         Width = 1001
         Caption = 'Результаты расчета потерь в кольцевом пространстве'
         ClientHeight = 108
@@ -409,6 +478,9 @@ object Form1: TForm1
     top = 200
     object MenuItem1: TMenuItem
       Caption = 'Файл'
+      object MenuItem3: TMenuItem
+        Caption = 'О программе'
+      end
       object MenuItem2: TMenuItem
         Caption = 'Выход'
         OnClick = MenuItem2Click
