@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 594
+  Left = 500
   Height = 611
-  Top = 97
+  Top = 168
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
@@ -42,7 +42,7 @@ object Form1: TForm1
         object Label2: TLabel
           Left = 8
           Height = 30
-          Top = 24
+          Top = 33
           Width = 142
           Caption = 'Плотность промывочной'#13#10'жидкости , кг/м^3'
           ParentColor = False
@@ -60,7 +60,7 @@ object Form1: TForm1
         object Edit2: TEdit
           Left = 224
           Height = 23
-          Top = 40
+          Top = 33
           Width = 61
           Alignment = taRightJustify
           OnKeyPress = Edit1KeyPress
@@ -106,11 +106,11 @@ object Form1: TForm1
       end
       object GroupBox2: TGroupBox
         Left = 312
-        Height = 159
+        Height = 239
         Top = 9
         Width = 224
         Caption = 'Расчет потерь давления в трубах'
-        ClientHeight = 139
+        ClientHeight = 219
         ClientWidth = 220
         TabOrder = 3
         object Label3: TLabel
@@ -171,7 +171,7 @@ object Form1: TForm1
         object Button1: TButton
           Left = 72
           Height = 25
-          Top = 104
+          Top = 184
           Width = 75
           Caption = 'Расчитать'
           OnClick = Button1Click
@@ -187,7 +187,6 @@ object Form1: TForm1
         ClientHeight = 219
         ClientWidth = 460
         TabOrder = 4
-        OnClick = GroupBox3Click
         object CheckBox1: TCheckBox
           Left = 8
           Height = 19
@@ -264,7 +263,7 @@ object Form1: TForm1
           ParentColor = False
         end
         object Button2: TButton
-          Left = 200
+          Left = 184
           Height = 25
           Top = 184
           Width = 75
@@ -323,7 +322,7 @@ object Form1: TForm1
           Alignment = taRightJustify
           OnKeyPress = Edit1KeyPress
           TabOrder = 8
-          Text = '10.00'
+          Text = '10,00'
         end
       end
       object GroupBox4: TGroupBox
@@ -474,8 +473,8 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    left = 24
-    top = 200
+    left = 336
+    top = 184
     object MenuItem1: TMenuItem
       Caption = 'Файл'
       object MenuItem3: TMenuItem

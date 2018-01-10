@@ -61,7 +61,6 @@ type
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
-    procedure GroupBox3Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
@@ -162,8 +161,9 @@ begin
    ktr:= StrToFloat('0,0003');
    lambdaRe:=Lambda(deltatr,(dv/1000),ref,hep,ktr);
    Form1.StringGrid1.Cells[6,1]:= FormatFloat('0.####',lambdaRe);
-   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit7.Text))/1000000;
-   Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',dp);
+   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit7.Text));
+   Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',lambdaRe);
+
    {if Form1.CheckBox1.State=cbChecked then
    begin
    lambdaRe:=Lambda(0.1,);
@@ -173,10 +173,7 @@ begin
    begin
 
    end;}
-
-
-
-  end
+   end
   else
   begin
     Form1.StringGrid1.Cells[5,1]:= 'Ламинарный';
@@ -213,12 +210,6 @@ begin
    Form1.Edit9.Enabled:=True;
 end;
 
-
-
-
-
-
-
 //Ввод только цифр и точки с запятой
 procedure TForm1.Edit1KeyPress(Sender: TObject; var Key: char);
 begin
@@ -229,11 +220,6 @@ begin
   else
    Key := #0;
   end;
-end;
-
-procedure TForm1.GroupBox3Click(Sender: TObject);
-begin
-
 end;
 
 end.
