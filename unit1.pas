@@ -19,7 +19,6 @@ type
     CheckBox2: TCheckBox;
     Edit1: TEdit;
     Edit10: TEdit;
-    Edit11: TEdit;
     Edit12: TEdit;
     Edit13: TEdit;
     Edit2: TEdit;
@@ -37,7 +36,6 @@ type
     GroupBox5: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
-    Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
     Label2: TLabel;
@@ -58,14 +56,15 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
     procedure MenuItem2Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
-
-
+   // procedure StringGrid2PrepareCanvas(sender: TObject; aCol, aRow: Integer;
+     // aState: TGridDrawState);
 
   private
 
@@ -94,16 +93,30 @@ procedure TForm1.StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
 var MyTextStyle: TTextStyle;
 begin
   StringGrid1.RowHeights[0]:=50;
+  StringGrid2.RowHeights[0]:=50;
   if (aRow=0) then
   begin
     MyTextStyle := StringGrid1.Canvas.TextStyle;
     MyTextStyle.SingleLine := false;
     MyTextStyle.Wordbreak:=true;
     StringGrid1.Canvas.TextStyle := MyTextStyle;
+    StringGrid2.Canvas.TextStyle := MyTextStyle;
   end;
 end;
 
-
+{procedure TForm1.StringGrid2PrepareCanvas(sender: TObject; aCol, aRow: Integer;
+  aState: TGridDrawState);
+var MyTextStyle: TTextStyle;
+begin
+  StringGrid2.RowHeights[0]:=50;
+  if (aRow=0) then
+  begin
+    MyTextStyle := StringGrid2.Canvas.TextStyle;
+    MyTextStyle.SingleLine := false;
+    MyTextStyle.Wordbreak:=true;
+    StringGrid2.Canvas.TextStyle := MyTextStyle;
+  end;
+end;}
 
 procedure deltaPpipe ();
 var
@@ -161,19 +174,9 @@ begin
    ktr:= StrToFloat('0,0003');
    lambdaRe:=Lambda(deltatr,(dv/1000),ref,hep,ktr);
    Form1.StringGrid1.Cells[6,1]:= FormatFloat('0.####',lambdaRe);
-   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit7.Text));
-   Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',lambdaRe);
-
-   {if Form1.CheckBox1.State=cbChecked then
-   begin
-   lambdaRe:=Lambda(0.1,);
-   end;
-
-   if Form1.CheckBox1.State=cbChecked then
-   begin
-
-   end;}
-   end
+   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit7.Text))/1000000;
+   Form1.StringGrid1.Cells[8,1]:= FormatFloat('0.###',dp);
+  end
   else
   begin
     Form1.StringGrid1.Cells[5,1]:= 'Ламинарный';
@@ -187,9 +190,104 @@ begin
 
 end;
 
+procedure deltaPannular();
+var
+  dvk: Double; // Диаметр внутренний обсадной колонны, мм
+  dt: Double; // Диаметр трубы, мм
+  dv :Double;  //Разность диаметров труб, мм
+  dns: Double;    //Динамическое напряжение сдвига, Па
+  pv: Double;  //Пластическая вязкость, Па*с
+  hep: Double; // Число Хендстрема
+  crre: Double; //Критическое число Рейнольдса
+  ref:Double; //Число Рейнольдса
+  v: Double;  //Средняя скорость жидксости, м/с
+  s: Double; // Площадь канала, мм2
+  Q: Double; // Расход, л/с
+  lambdaRe: Double; // Коэфф. гидр. сопротивления Турбулентный режим
+  selam: Double;
+  lt: Double;
+  dp: Double;
+  ktr, kpor: Double;
+  deltatr: Double;
+begin
+  //Разность диаметров, мм
+  if Form1.CheckBox1.Checked=true then
+  begin
+  dvk:= StrToFloat(Form1.Edit12.Text)-2*StrToFloat(Form1.Edit13.Text);
+  dt:= StrToFloat(Form1.Edit8.Text);
+  dv:= dvk-dt;
+  Form1.StringGrid2.Cells[0,1]:= FloatToStr(dvk);
+  Form1.StringGrid2.Cells[1,1]:= FloatToStr(dt);
+  ktr:= StrToFloat('0,0003');
+  end;
+
+  if Form1.CheckBox2.Checked=true then
+  begin
+  dvk:= StrToFloat(Form1.Edit9.Text);
+  dt:= StrToFloat(Form1.Edit8.Text);
+  dv:= dvk-dt;
+  Form1.StringGrid2.Cells[0,1]:= FloatToStr(dvk);
+  Form1.StringGrid2.Cells[1,1]:= FloatToStr(dt);
+  ktr:= StrToFloat('0,003');
+  end;
+
+  //Динамическое напряжение сдвига, Па
+  dns:=DinamNaprSdivga(StrToFloat(Form1.Edit2.Text));
+  Form1.Edit5.Text:=FloatToStr(dns);
+
+  //Пластическая вязкость, Па*с
+  pv:=PlastVayzkost(StrToFloat(Form1.Edit2.Text));
+  Form1.Edit6.Text:=FloatToStr(pv);
+
+  // Число Хендстрема
+  hep:=He(StrToFloat(Form1.Edit2.Text),dns,dv,pv);
+  Form1.StringGrid2.Cells[2,1]:= FloatToStr(Ceil(hep));
+
+  //Критическое число Рейнольдса
+  crre:=CRe(hep);
+  Form1.StringGrid2.Cells[3,1]:= FloatToStr(Ceil(crre));
+
+  //Средняя скорость жидксости, м/с
+  s:=PloshadAnnular(dvk,dt)/1000000;
+  Q:=StrToFloat(Form1.Edit1.Text)/1000;
+  v:=Q/s;
+  Form1.StringGrid2.Cells[4,1]:= FormatFloat('0.##',v);
+
+  //Число Рейнольдса
+  ref:=Re(StrToFloat(Form1.Edit2.Text),v,dv,pv);
+  Form1.StringGrid2.Cells[6,1]:= FloatToStr(Ceil(ref));
+
+  if ref > crre then
+  begin
+   Form1.StringGrid2.Cells[5,1]:= 'Турбулентный';
+   Form1.StringGrid2.Cells[7,1]:= '-';
+   deltatr:=StrToFloat('0,107');
+   lambdaRe:=Lambda(deltatr,(dv/1000),ref,hep,ktr);
+   Form1.StringGrid2.Cells[8,1]:= FormatFloat('0.####',lambdaRe);
+   dp:=deltaPTurb(lambdaRe,StrToFloat(Form1.Edit2.Text),v,(dv/1000),StrToFloat(Form1.Edit10.Text))/1000000;
+   Form1.StringGrid2.Cells[9,1]:= FormatFloat('0.###',dp);
+  end
+  else
+  begin
+    Form1.StringGrid2.Cells[5,1]:= 'Ламинарный';
+    Form1.StringGrid2.Cells[8,1]:= '-';
+    selam:=Se(dns,dv,pv,v);
+    Form1.StringGrid2.Cells[7,1]:= FormatFloat('0.##',selam); //FloatToStr(selam);
+    lt:=StrToFloat(Form1.Edit10.Text);
+    dp:=deltaPLamin(selam,dns,lt,dv)/1000;
+    Form1.StringGrid2.Cells[9,1]:= FormatFloat('0.###',dp); //FloatToStr(dp);
+  end;
+
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   deltaPpipe;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+ deltaPannular();
 end;
 
 procedure TForm1.CheckBox1Click(Sender: TObject);

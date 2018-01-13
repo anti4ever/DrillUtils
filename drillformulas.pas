@@ -12,6 +12,9 @@ function DiameterWell(DiameterBit: real; K_kavern: real):real;
 // Площадь круга (Диаметре,м^2 (мм^2)), м^2 (мм^2)
 function PloshadKruga (Diameter: real):real;
 
+//Площадь кольцевого пространства (Диаметре1,м^2 (мм^2), Диаметре2,м^2 (мм^2)), м^2 (мм^2)
+function PloshadAnnular (Diameter1, Diameter2:real):real;
+
 
 //ГИДРАВЛИКА--------------------------------------------------------------------
 
@@ -31,7 +34,7 @@ function CRe (He:real):real;
 function Re (Plotnost,SrednScorostGidkost,Diameter,PlastVayzkost:real):real;
 
 //Коэффициент гидравлических потерь (Лямбда). delta для труб 0,1; для кольцевого
-//пространства 0,107. K для труб 0,03; для кольцевого пространства 0,003.
+//пространства 0,107. K для труб 0,0003; для кольцевого пространства 0,003.
 function Lambda (delta, Diameter, Re, He, K :double):double;
 
 //Скорость потока, м/с (Расход, м^3/c; Площадь, м^2)
@@ -62,6 +65,12 @@ function DiameterWell(DiameterBit: real; K_kavern: real):real;
 function PloshadKruga (Diameter: real):real;
 begin
      Result:=Pi*exp(2*ln(Diameter))/4;
+end;
+
+//Площадь кольцевого пространства (Диаметре1,м^2 (мм^2), Диаметре2,м^2 (мм^2)), м^2 (мм^2)
+function PloshadAnnular (Diameter1, Diameter2:real):real;
+begin
+   Result:=Pi*(exp(2*ln(Diameter1))-exp(2*ln(Diameter2)))/4
 end;
 
 //ГИДРАВЛИКА
