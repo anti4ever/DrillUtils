@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 500
+  Left = 460
   Height = 611
-  Top = 168
+  Top = 140
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
@@ -15,8 +15,8 @@ object Form1: TForm1
     Height = 544
     Top = 0
     Width = 1024
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet2
+    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Расчет гидравлических потерь'
@@ -169,7 +169,7 @@ object Form1: TForm1
           ParentColor = False
         end
         object Button1: TButton
-          Left = 72
+          Left = 136
           Height = 25
           Top = 184
           Width = 75
@@ -263,7 +263,7 @@ object Form1: TForm1
           ParentColor = False
         end
         object Button2: TButton
-          Left = 184
+          Left = 376
           Height = 25
           Top = 184
           Width = 75
@@ -452,10 +452,246 @@ object Form1: TForm1
       end
     end
     object TabSheet2: TTabSheet
-      Caption = 'Тест'
-      Enabled = False
-      ParentShowHint = False
-      TabVisible = False
+      Caption = 'Потери давления на долоте'
+      ClientHeight = 516
+      ClientWidth = 1016
+      object GroupBox6: TGroupBox
+        Left = 8
+        Height = 488
+        Top = 8
+        Width = 288
+        Caption = 'Исходные данные'
+        ClientHeight = 468
+        ClientWidth = 284
+        TabOrder = 0
+        object Label11: TLabel
+          Left = 8
+          Height = 15
+          Top = 40
+          Width = 61
+          Caption = 'Расход, л/с'
+          ParentColor = False
+        end
+        object Label14: TLabel
+          Left = 8
+          Height = 30
+          Top = 72
+          Width = 142
+          Caption = 'Плотность промывочной'#13#10'жидкости , кг/м^3'
+          ParentColor = False
+        end
+        object Edit11: TEdit
+          Left = 160
+          Height = 23
+          Top = 40
+          Width = 61
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 0
+          Text = '28'
+        end
+        object Edit14: TEdit
+          Left = 160
+          Height = 23
+          Top = 72
+          Width = 61
+          Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
+          TabOrder = 1
+          Text = '1100'
+        end
+        object Label15: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 113
+          Caption = 'Диаметр долота, мм'
+          ParentColor = False
+        end
+        object Edit15: TEdit
+          Left = 160
+          Height = 23
+          Top = 8
+          Width = 61
+          Alignment = taRightJustify
+          TabOrder = 2
+          Text = '215,9'
+        end
+        object GroupBox7: TGroupBox
+          Left = 8
+          Height = 312
+          Top = 112
+          Width = 264
+          Caption = 'Насадки'
+          ClientHeight = 292
+          ClientWidth = 260
+          TabOrder = 3
+          object ValueListEditor1: TValueListEditor
+            Left = 8
+            Height = 204
+            Top = 72
+            Width = 154
+            FixedCols = 0
+            RowCount = 4
+            TabOrder = 0
+            Strings.Strings = (
+              '1=12,7'
+              '2=12,7'
+              '3=12,7'
+            )
+            TitleCaptions.Strings = (
+              'Номер'
+              'Диаметр,мм'
+            )
+            ColWidths = (
+              75
+              75
+            )
+          end
+          object Button3: TButton
+            Left = 176
+            Height = 25
+            Top = 72
+            Width = 75
+            Caption = 'Добавить'
+            OnClick = Button3Click
+            TabOrder = 1
+          end
+          object ComboBox1: TComboBox
+            Left = 176
+            Height = 23
+            Top = 40
+            Width = 75
+            AutoComplete = True
+            AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+            ItemHeight = 15
+            ItemIndex = 1
+            Items.Strings = (
+              '6,4'
+              '12,7'
+            )
+            TabOrder = 2
+            Text = '12,7'
+          end
+          object Label16: TLabel
+            Left = 8
+            Height = 15
+            Top = 8
+            Width = 170
+            Caption = 'Коэффициент расхода насадок'
+            ParentColor = False
+          end
+          object Edit16: TEdit
+            Left = 203
+            Height = 23
+            Top = 8
+            Width = 48
+            Alignment = taRightJustify
+            TabOrder = 3
+            Text = '0,95'
+          end
+          object Button5: TButton
+            Left = 176
+            Height = 25
+            Top = 104
+            Width = 75
+            Caption = 'Удалить'
+            OnClick = Button5Click
+            TabOrder = 4
+          end
+          object Label21: TLabel
+            Left = 88
+            Height = 15
+            Top = 40
+            Width = 72
+            Caption = 'Диаметр, мм'
+            ParentColor = False
+          end
+        end
+        object Button4: TButton
+          Left = 200
+          Height = 25
+          Top = 432
+          Width = 75
+          Caption = 'Расчитать'
+          OnClick = Button4Click
+          TabOrder = 4
+        end
+      end
+      object GroupBox8: TGroupBox
+        Left = 304
+        Height = 488
+        Top = 8
+        Width = 296
+        Caption = 'Результаты расчета'
+        ClientHeight = 468
+        ClientWidth = 292
+        TabOrder = 1
+        object Label17: TLabel
+          Left = 8
+          Height = 15
+          Top = 8
+          Width = 199
+          Caption = 'Суммарная площадь насадок, см^2'
+          ParentColor = False
+        end
+        object Label18: TLabel
+          Left = 8
+          Height = 15
+          Top = 40
+          Width = 161
+          Caption = 'Удельный расход, (л/с)/см^2'
+          ParentColor = False
+        end
+        object Label19: TLabel
+          Left = 8
+          Height = 15
+          Top = 72
+          Width = 184
+          Caption = 'Потери давления на долоте, МПа'
+          ParentColor = False
+        end
+        object Edit17: TEdit
+          Left = 224
+          Height = 23
+          Top = 8
+          Width = 56
+          Alignment = taRightJustify
+          TabOrder = 0
+        end
+        object Edit18: TEdit
+          Left = 224
+          Height = 23
+          Top = 40
+          Width = 56
+          Alignment = taRightJustify
+          TabOrder = 1
+        end
+        object Edit19: TEdit
+          Left = 224
+          Height = 23
+          Top = 72
+          Width = 56
+          Alignment = taRightJustify
+          TabOrder = 2
+        end
+        object Label20: TLabel
+          Left = 8
+          Height = 15
+          Top = 104
+          Width = 200
+          Caption = 'Скорость истечения из насадок, м/с'
+          ParentColor = False
+        end
+        object Edit20: TEdit
+          Left = 224
+          Height = 23
+          Top = 104
+          Width = 56
+          Alignment = taRightJustify
+          TabOrder = 3
+        end
+      end
     end
   end
   object MainMenu1: TMainMenu

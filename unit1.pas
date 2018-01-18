@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, StdCtrls, Menus, ComCtrls, Grids, Graphics,
-  Drillformulas, Math, Controls, ExtCtrls, Types;
+  Drillformulas, Math, Controls, ExtCtrls, ValEdit;
 
 type
 
@@ -15,13 +15,25 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
+    ComboBox1: TComboBox;
     Edit1: TEdit;
     Edit10: TEdit;
+    Edit11: TEdit;
     Edit12: TEdit;
     Edit13: TEdit;
+    Edit14: TEdit;
+    Edit15: TEdit;
+    Edit16: TEdit;
+    Edit17: TEdit;
+    Edit18: TEdit;
+    Edit19: TEdit;
     Edit2: TEdit;
+    Edit20: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
     Edit5: TEdit;
@@ -34,11 +46,23 @@ type
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
     GroupBox5: TGroupBox;
+    GroupBox6: TGroupBox;
+    GroupBox7: TGroupBox;
+    GroupBox8: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
+    Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
     Label2: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -55,8 +79,12 @@ type
     StringGrid2: TStringGrid;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
+    ValueListEditor1: TValueListEditor;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
@@ -104,20 +132,6 @@ begin
   end;
 end;
 
-{procedure TForm1.StringGrid2PrepareCanvas(sender: TObject; aCol, aRow: Integer;
-  aState: TGridDrawState);
-var MyTextStyle: TTextStyle;
-begin
-  StringGrid2.RowHeights[0]:=50;
-  if (aRow=0) then
-  begin
-    MyTextStyle := StringGrid2.Canvas.TextStyle;
-    MyTextStyle.SingleLine := false;
-    MyTextStyle.Wordbreak:=true;
-    StringGrid2.Canvas.TextStyle := MyTextStyle;
-  end;
-end;}
-
 procedure deltaPpipe ();
 var
   dv :Double;  //Внутр. диаметр труб, мм
@@ -133,7 +147,7 @@ var
   selam: Double;
   lt: Double;
   dp: Double;
-  ktr, kpor: Double;
+  ktr: Double;
   deltatr: Double;
 begin
   //Внутренний диаметр, мм
@@ -207,7 +221,7 @@ var
   selam: Double;
   lt: Double;
   dp: Double;
-  ktr, kpor: Double;
+  ktr: Double;
   deltatr: Double;
 begin
   //Разность диаметров, мм
@@ -288,6 +302,44 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 begin
  deltaPannular();
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var i: Integer;
+begin
+  i:=Form1.ValueListEditor1.RowCount;
+  Form1.ValueListEditor1.Strings.Add(Form1.ComboBox1.Text);
+  Form1.ValueListEditor1.Keys[i]:=IntToStr(i);
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var i: Integer; s,uq,dp,mu,q,pl:real; a:string;
+begin
+  i:=Form1.ValueListEditor1.RowCount;
+  s:=0;
+ while i>1 do
+       begin
+       a:=Form1.ValueListEditor1.Values[IntToStr(i-1)];
+       s:=s+PloshadKruga(StrToFloat(a));
+       i:=i-1;
+       end;
+   Form1.Edit17.Text:=FormatFloat('0.###',s/100);
+   uq:=StrToFloat(Form1.Edit11.Text)/(PloshadKruga(StrToFloat(Form1.Edit15.Text))/100);
+   Form1.Edit18.Text:=FormatFloat('0.###',uq);
+   mu:= StrToFloat(Form1.Edit16.Text);
+   q:= StrToFloat(Form1.Edit11.Text)/1000;
+   pl:= StrToFloat(Form1.Edit14.Text);
+   dp:=deltaPdoloto(mu,q,(s/1000000),pl)/1000000;
+   Form1.Edit19.Text:=FormatFloat('0.##',dp);
+   Form1.Edit20.Text:=FormatFloat('0.##',(q/(s/1000000)));
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+var i: Integer;
+begin
+  i:=Form1.ValueListEditor1.RowCount;
+  if i>2 then
+  Form1.ValueListEditor1.DeleteRow(i-1);
 end;
 
 procedure TForm1.CheckBox1Click(Sender: TObject);

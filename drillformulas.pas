@@ -50,6 +50,9 @@ function deltaPLamin (Sen,DinamNaprSdivga, L, Diameter:real):real;
 //Средняя скорость жидксти, м/с; Диаметер, м)
 function deltaPTurb (Lambda, Plotnost, SredScorostGidkost , Diameter,L:real):real;
 
+// Перепад давления на долоте, МПа (МЮ; Расход, м3; Площадь насадок, м2; Плотность, кг/м3)
+function deltaPdoloto (mu,Raschod, Ploshad, Plotnost: real):real;
+
 //------------------------------------------------------------------------------
 
 
@@ -145,5 +148,15 @@ var beta:real;
       Result:=4*DinamNaprSdivga*L/(beta*Diameter);
  end;
 
+// Перепад давления на долоте, МПа (МЮ; Расход, м3; Площадь насадок, м2; Плотность, кг/м3)
+function deltaPdoloto (mu,Raschod, Ploshad, Plotnost: real):real;
+var alfa: real;
+begin
+     alfa:=1/(2*exp(2*ln(mu))*exp(2*ln(Ploshad)));
+     Result:= alfa* exp(2*ln(Raschod))*Plotnost;
+end;
+
 end.
+
+
 
