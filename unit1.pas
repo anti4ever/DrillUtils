@@ -63,6 +63,7 @@ type
     Label2: TLabel;
     Label20: TLabel;
     Label21: TLabel;
+    Label22: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -79,6 +80,7 @@ type
     StringGrid2: TStringGrid;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
     ValueListEditor1: TValueListEditor;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -155,12 +157,26 @@ begin
   Form1.StringGrid1.Cells[0,1]:= FloatToStr(dv);
 
   //Динамическое напряжение сдвига, Па
+  if Form1.Edit5.Text <> '' then
+  begin
+  dns:=StrToFloat(Form1.Edit5.Text);
+  end
+  else
+  begin
   dns:=DinamNaprSdivga(StrToFloat(Form1.Edit2.Text));
   Form1.Edit5.Text:=FloatToStr(dns);
+  end;
 
   //Пластическая вязкость, Па*с
+  if Form1.Edit6.Text <> '' then
+  begin
+  pv:=StrToFloat(Form1.Edit6.Text);
+  end
+  else
+  begin
   pv:=PlastVayzkost(StrToFloat(Form1.Edit2.Text));
   Form1.Edit6.Text:=FloatToStr(pv);
+  end;
 
   // Число Хендстрема
   hep:=He(StrToFloat(Form1.Edit2.Text),dns,dv,pv);
@@ -246,12 +262,26 @@ begin
   end;
 
   //Динамическое напряжение сдвига, Па
+  if Form1.Edit5.Text <> '' then
+  begin
+  dns:=StrToFloat(Form1.Edit5.Text);
+  end
+  else
+  begin
   dns:=DinamNaprSdivga(StrToFloat(Form1.Edit2.Text));
   Form1.Edit5.Text:=FloatToStr(dns);
+  end;
 
   //Пластическая вязкость, Па*с
+  if Form1.Edit6.Text <> '' then
+  begin
+  pv:=StrToFloat(Form1.Edit6.Text);
+  end
+  else
+  begin
   pv:=PlastVayzkost(StrToFloat(Form1.Edit2.Text));
   Form1.Edit6.Text:=FloatToStr(pv);
+  end;
 
   // Число Хендстрема
   hep:=He(StrToFloat(Form1.Edit2.Text),dns,dv,pv);

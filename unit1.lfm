@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 460
+  Left = 529
   Height = 611
-  Top = 140
+  Top = 188
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
@@ -15,8 +15,8 @@ object Form1: TForm1
     Height = 544
     Top = 0
     Width = 1024
-    ActivePage = TabSheet2
-    TabIndex = 1
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Расчет гидравлических потерь'
@@ -71,7 +71,7 @@ object Form1: TForm1
       object Label5: TLabel
         Left = 8
         Height = 15
-        Top = 108
+        Top = 128
         Width = 213
         Caption = 'Динамическое напряжение сдвига, Па'
         ParentColor = False
@@ -79,7 +79,7 @@ object Form1: TForm1
       object Label6: TLabel
         Left = 8
         Height = 15
-        Top = 136
+        Top = 160
         Width = 159
         Caption = 'Пластическая вязкость, Па*с'
         ParentColor = False
@@ -87,20 +87,18 @@ object Form1: TForm1
       object Edit5: TEdit
         Left = 232
         Height = 23
-        Top = 108
+        Top = 128
         Width = 61
         Alignment = taRightJustify
-        NumbersOnly = True
         OnKeyPress = Edit1KeyPress
         TabOrder = 1
       end
       object Edit6: TEdit
         Left = 232
         Height = 23
-        Top = 136
+        Top = 160
         Width = 61
         Alignment = taRightJustify
-        NumbersOnly = True
         OnKeyPress = Edit1KeyPress
         TabOrder = 2
       end
@@ -147,7 +145,6 @@ object Form1: TForm1
           Top = 32
           Width = 61
           Alignment = taRightJustify
-          NumbersOnly = True
           OnKeyPress = Edit1KeyPress
           TabOrder = 2
           Text = '9,19'
@@ -450,6 +447,16 @@ object Form1: TForm1
           )
         end
       end
+      object Label22: TLabel
+        Left = 7
+        Height = 15
+        Top = 104
+        Width = 200
+        Caption = 'Если не введены будут расчитаны:'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Потери давления на долоте'
@@ -514,6 +521,7 @@ object Form1: TForm1
           Top = 8
           Width = 61
           Alignment = taRightJustify
+          OnKeyPress = Edit1KeyPress
           TabOrder = 2
           Text = '215,9'
         end
@@ -534,6 +542,7 @@ object Form1: TForm1
             FixedCols = 0
             RowCount = 4
             TabOrder = 0
+            OnKeyPress = Edit1KeyPress
             Strings.Strings = (
               '1=12,7'
               '2=12,7'
@@ -570,6 +579,7 @@ object Form1: TForm1
               '6,4'
               '12,7'
             )
+            OnKeyPress = Edit1KeyPress
             TabOrder = 2
             Text = '12,7'
           end
@@ -587,6 +597,7 @@ object Form1: TForm1
             Top = 8
             Width = 48
             Alignment = taRightJustify
+            OnKeyPress = Edit1KeyPress
             TabOrder = 3
             Text = '0,95'
           end
@@ -692,6 +703,9 @@ object Form1: TForm1
           TabOrder = 3
         end
       end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Разное'
     end
   end
   object MainMenu1: TMainMenu
