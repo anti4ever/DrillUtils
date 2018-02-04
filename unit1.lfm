@@ -1,13 +1,13 @@
 object Form1: TForm1
   Left = 529
   Height = 611
-  Top = 188
+  Top = 198
   Width = 1028
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'DrillUtilits'
-  ClientHeight = 591
-  ClientWidth = 1028
+  ClientHeight = 0
+  ClientWidth = 0
   Menu = MainMenu1
   LCLVersion = '1.8.0.6'
   object PageControl1: TPageControl
@@ -15,8 +15,8 @@ object Form1: TForm1
     Height = 544
     Top = 0
     Width = 1024
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet4
+    TabIndex = 3
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Расчет гидравлических потерь'
@@ -35,8 +35,8 @@ object Form1: TForm1
           Left = 8
           Height = 15
           Top = 0
-          Width = 61
-          Caption = 'Расход, л/с'
+          Width = 117
+          Caption = 'Расход жидкости, л/с'
           ParentColor = False
         end
         object Label2: TLabel
@@ -706,6 +706,30 @@ object Form1: TForm1
     end
     object TabSheet3: TTabSheet
       Caption = 'Разное'
+      ClientHeight = 516
+      ClientWidth = 1016
+      object GroupBox9: TGroupBox
+        Left = 8
+        Height = 137
+        Top = 8
+        Width = 256
+        Caption = 'Коммерческая скорость бурения, м.ст-мес'
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'TabSheet4'
+      ClientHeight = 516
+      ClientWidth = 1016
+      object Button6: TButton
+        Left = 151
+        Height = 25
+        Top = 132
+        Width = 75
+        Caption = 'Button6'
+        OnClick = Button6Click
+        TabOrder = 0
+      end
     end
   end
   object MainMenu1: TMainMenu

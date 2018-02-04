@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, StdCtrls, Menus, ComCtrls, Grids, Graphics,
-  Drillformulas, Math, Controls, ExtCtrls, ValEdit;
+  Drillformulas, Math, Controls, ExtCtrls, ValEdit, comobj;
 
 type
 
@@ -18,6 +18,7 @@ type
     Button3: TButton;
     Button4: TButton;
     Button5: TButton;
+    Button6: TButton;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
     ComboBox1: TComboBox;
@@ -49,6 +50,7 @@ type
     GroupBox6: TGroupBox;
     GroupBox7: TGroupBox;
     GroupBox8: TGroupBox;
+    GroupBox9: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -81,20 +83,20 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
     ValueListEditor1: TValueListEditor;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
     procedure MenuItem2Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
-   // procedure StringGrid2PrepareCanvas(sender: TObject; aCol, aRow: Integer;
-     // aState: TGridDrawState);
 
   private
 
@@ -122,8 +124,8 @@ procedure TForm1.StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
   aState: TGridDrawState);
 var MyTextStyle: TTextStyle;
 begin
-  StringGrid1.RowHeights[0]:=50;
-  StringGrid2.RowHeights[0]:=50;
+  StringGrid1.RowHeights[0]:=60;
+  StringGrid2.RowHeights[0]:=60;
   if (aRow=0) then
   begin
     MyTextStyle := StringGrid1.Canvas.TextStyle;
@@ -370,6 +372,33 @@ begin
   i:=Form1.ValueListEditor1.RowCount;
   if i>2 then
   Form1.ValueListEditor1.DeleteRow(i-1);
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var
+  MSWord,t: OleVariant;
+  s: String;
+begin
+  MsWord := CreateOleObject('Word.Application');
+  MsWord.Documents.Open('d:\Lazarus\DrillUtils\test.docx');
+   MsWord.Visible := True;
+  //t:= UTF8Decode('123');
+  //f:= UTF8Decode('test');
+  //s := UTF8Decode('Привет, мир! test');
+  //MsWord.Selection.TypeText(WideString(s));
+  t:= 'привет';
+
+  //f:= UTF8Decode('test');
+  MsWord.Selection.Find.ClearFormatting;
+  MsWord.Selection.Find.Replacement.ClearFormatting;
+  MsWord.Selection.Find.Text:='test';
+  //MsWord.Selection.GoTo(-1,,,f);
+  MsWord.Selection.Find.Replacement.Text := t;
+  MsWord.Selection.Find.Forward:=True;
+  MsWord.Selection.Find.Execute (Replace := 2);
+  //MsWord.Selection.TypeText(t);
+
+
 end;
 
 procedure TForm1.CheckBox1Click(Sender: TObject);
