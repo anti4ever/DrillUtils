@@ -35,6 +35,7 @@ type
     Edit19: TEdit;
     Edit2: TEdit;
     Edit20: TEdit;
+    Edit21: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
     Edit5: TEdit;
@@ -397,6 +398,7 @@ begin
   MsWord.Selection.Find.Forward:=True;
   MsWord.Selection.Find.Execute (Replace := 2);
   //MsWord.Selection.TypeText(t);
+  Form1.Edit21.Text:=ExtractFilePath(paramStr(0)); //Дирректория программы
 
 
 end;
