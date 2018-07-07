@@ -94,8 +94,10 @@ type
     procedure Button6Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
+    procedure Edit11Change(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
     procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
     procedure StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
       aState: TGridDrawState);
 
@@ -110,6 +112,8 @@ var
 
 implementation
 
+uses info_form;
+
 {$R *.lfm}
 
 { TForm1 }
@@ -119,6 +123,11 @@ implementation
 procedure TForm1.MenuItem2Click(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+      info_form.Form2.Show;
 end;
 
 procedure TForm1.StringGrid1PrepareCanvas(sender: TObject; aCol, aRow: Integer;
@@ -421,12 +430,17 @@ begin
    Form1.Edit9.Enabled:=True;
 end;
 
+procedure TForm1.Edit11Change(Sender: TObject);
+begin
+
+end;
+
 //Ввод только цифр и точки с запятой
 procedure TForm1.Edit1KeyPress(Sender: TObject; var Key: char);
 begin
-  case Key of
+   case Key of
     '0'..'9', #8:;
-    ',','.': if Pos(DecimalSeparator{%H-}, Form1.Edit1.Text) = 0 then
+    ',','.': if Pos(DecimalSeparator{%H-},TEdit(Sender).Text) = 0 then
      Key := DecimalSeparator{%H-} else Key := #0;
   else
    Key := #0;
