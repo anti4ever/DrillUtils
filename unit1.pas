@@ -21,6 +21,7 @@ type
     Button6: TButton;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
+    CheckBox3: TCheckBox;
     ComboBox1: TComboBox;
     Edit1: TEdit;
     Edit10: TEdit;
@@ -66,7 +67,6 @@ type
     Label2: TLabel;
     Label20: TLabel;
     Label21: TLabel;
-    Label22: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -94,6 +94,8 @@ type
     procedure Button6Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBox2Click(Sender: TObject);
+    procedure CheckBox3Change(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
     procedure Edit11Change(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: char);
     procedure MenuItem2Click(Sender: TObject);
@@ -169,7 +171,7 @@ begin
   Form1.StringGrid1.Cells[0,1]:= FloatToStr(dv);
 
   //Динамическое напряжение сдвига, Па
-  if Form1.Edit5.Text <> '' then
+  if Form1.CheckBox3.Checked = true then
   begin
   dns:=StrToFloat(Form1.Edit5.Text);
   end
@@ -180,7 +182,7 @@ begin
   end;
 
   //Пластическая вязкость, Па*с
-  if Form1.Edit6.Text <> '' then
+  if Form1.CheckBox3.Checked = true then
   begin
   pv:=StrToFloat(Form1.Edit6.Text);
   end
@@ -274,7 +276,7 @@ begin
   end;
 
   //Динамическое напряжение сдвига, Па
-  if Form1.Edit5.Text <> '' then
+  if Form1.CheckBox3.Checked = true then
   begin
   dns:=StrToFloat(Form1.Edit5.Text);
   end
@@ -285,7 +287,7 @@ begin
   end;
 
   //Пластическая вязкость, Па*с
-  if Form1.Edit6.Text <> '' then
+  if Form1.CheckBox3.Checked = true then
   begin
   pv:=StrToFloat(Form1.Edit6.Text);
   end
@@ -428,6 +430,25 @@ begin
    Form1.Edit12.Enabled:=False;
    Form1.Edit13.Enabled:=False;
    Form1.Edit9.Enabled:=True;
+end;
+
+procedure TForm1.CheckBox3Change(Sender: TObject);
+begin
+   if CheckBox3.State = cbChecked then
+   begin
+   Form1.Edit5.Enabled:=True;
+   Form1.Edit6.Enabled:=True;
+   end
+   else
+   begin
+    Form1.Edit5.Enabled:=False;
+   Form1.Edit6.Enabled:=False;
+   end;
+end;
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.Edit11Change(Sender: TObject);
